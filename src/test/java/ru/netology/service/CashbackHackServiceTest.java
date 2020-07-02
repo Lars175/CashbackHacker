@@ -13,7 +13,7 @@ public class CashbackHackServiceTest {
 
         int actual = service.remain(900);
 
-        assertEquals(100, actual);
+        assertEquals(actual, 100);
     }
 
     @Test
@@ -21,7 +21,21 @@ public class CashbackHackServiceTest {
 
         int actual = service.remain(1000);
 
-        assertEquals( 0, actual);
+        assertEquals(actual, 0);
+    }
+    @Test
+    public void shouldReturnZeroIfAmountIs0() {
+
+        int actual = service.remain(0);
+
+        assertEquals( actual, 1000);
+    }
+    @Test
+    public void shouldReturnZeroIfAmountLowerThan2000() {
+
+        int actual = service.remain(2000);
+
+        assertEquals(actual,  0);
     }
 
 }
